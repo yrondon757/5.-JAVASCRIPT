@@ -290,7 +290,7 @@ if(dinero && tiempo && humor){
 
 // condicion ? bloque de codigo que se ejecuta si la condicion es verdadera : bloque de codigo que se ejecuta si la condicion es falsa
 
-let operadorTernario = 9 > 1 ? "Yenetson" : "Jose";
+/*let operadorTernario = 9 > 1 ? "Yenetson" : "Jose";
 console.log(operadorTernario);
 
 
@@ -314,4 +314,185 @@ if(correo == "yenetson@gmail.com"){
 
 let numero1 = parseInt(prompt("Ingresa un numero"));
 let numero2 = parseInt(prompt("Ingresa el otro numero"));
-alert(numero1 + numero2);
+alert(numero1 + numero2); */
+
+
+
+
+// ----------------- EJERCICIOS --------------------
+/*
+
+1. Verifica si un numero es par o impar.
+
+2. Realiza un objeto "persona" con las siguientes propiedades:
+-Nombre
+-Apellido
+-Edad
+-Cedula
+-Nacionalidad
+-Profesion
+-Estado Civil
+-Hobbies
+
+Y evaluar si la profesion es programador y si el estado civul es "soltero", en caso de ser programador, agrega una nueva propiedad "Lenguaje favorito", y colocale "Javascript"
+Llamada nombre completo, que sea la union del nombre y el apellido.
+
+3. Crea un objeto que represente a un "estudiante" que tenga las siguientes propiedades:
+-Nombre
+-Edad
+-Nota1
+-Nota2
+-Nota3
+
+Debe crear un programa que determine si el estudiante aprueba o reprueba segun las siguientes condiciones:
+
+- El estudiante aprueba si su promedio de notas (nota1, nota2, nota3) es igual o mayor a 10.
+- Ademas, el estudiante debe tener 18 años para aprobar.
+- Agregar tambien una propiedad que se llame resultado final, que contenga el promedio.
+- Imprime el objeto por consola.
+
+*/
+
+
+// 1er EJERCICIO
+let numero = parseInt(prompt("Ingresa un numero:"));
+if(numero % 2 === 0){
+    alert("El numero es par");
+}else{
+    alert("El numero no es par");
+}
+
+
+// 2do EJERCICIO
+let empleado = {
+    nombre: "Yenetson",
+    apellido: "Rondon",
+    edad: 32,
+    cedula: 19465630,
+    nacionalidad: "Venezolano",
+    profesion: "Programador",
+    estadoCivil: "Soltero",
+    hobbies: ["Videojuegos", "Programar"]
+};
+
+if(empleado.profesion === "Programador" && empleado.estadoCivil === "Soltero"){
+    empleado.lenguajeFavorito = "Javascript";
+    empleado.nombreCompleto = empleado.nombre + " " + empleado.apellido;
+}
+
+console.log(empleado);
+
+
+// 3er
+let estudiante = {
+    nombre: "Juanito",
+    edad: 18,
+    nota1: 17,
+    nota2: 20,
+    nota3: 10,
+};
+
+let promedio = (estudiante.nota1 + estudiante.nota2 + estudiante.nota3) / 3;
+
+if(promedio >= 10 && estudiante.edad >= 18){
+    console.log("APROBASTE");
+    estudiante.resultadoFinal = promedio.toFixed(2); // toFixed(#) agrega decimales del resultado
+}else{
+    console.log("REPROBASTE");
+    estudiante.resultadoFinal = promedio.toFixed(2);
+}
+
+console.log(estudiante);
+
+
+// --------------------- MAS EJERCICIOS
+
+/*
+
+1. Calcula el precio final de una compra despues de aplicar un descuento.
+
+2. Calcula el total de una factura de un restaurante y despues aplicar propina y verificar si se puede aplicar un descuento.
+
+3. Calcula la cantidad de dias que una persona ha vivido basandote en su edad.
+
+*/
+
+
+// 1r EJERCICIO
+let precioCompras = 250;
+let descuento = 0.10; // Esto es un descuento del 10%
+let precioFinal;
+
+if(precioCompras > 100){
+    precioFinal = precioCompras - (precioCompras * descuento);
+}else{
+    precioFinal = precioCompras;
+}
+
+console.log("El final de las compras es de: ", precioFinal);
+
+
+// 2do EJERCICIO
+let totalFactura = 40;
+let propina = totalFactura * 0.05;
+let descuento2;
+let totalFinal;
+
+if(totalFactura > 50){
+    descuento2 = totalFactura * 0.15;
+}else{
+    descuento2 = 0;
+}
+
+totalFinal = totalFactura + propina - descuento2;
+
+console.log("El total de la factura es de : ", totalFinal);
+
+
+// 3er EJERCICIO
+let edad2 = 21;
+let dias;
+
+if(edad2 > 0){
+    dias = edad2 * 365;
+    console.log("Tu has vivido: " + dias + " dias :O");
+}else{
+    console.log("Ingresa una edad valida");
+}
+
+
+// -------------------------- MAS EJERCICIOS
+
+/*
+
+1. Calcula el costo de estacionamiento en funcion del numero de horas estacionado, considerando tarifas variables dependiendo del tiempo.
+
+Requisito
+Tarifas basicas:
+
+- Las primeras 2 horas tienen un costo fijo por hora.
+- De 3 a 5 horas, la tarifa es un 50% mas alta que la tarifa basica por hora.
+- Mas de 5 horas, la tarifa es el doble de la tarifa basica por hora.
+
+Tarifa por hora:
+
+- La tarifa basica por hora es de: 2$.
+
+
+Condicionales
+- Si el numero de horas es menor o igual a 2, calcula el costo multiplicando el numero de horas por la tarifa basica.
+- Si el numero de horas es mayor que 2 pero menor o igual a 5, calcula el costo sumando de las primeras 2 horas a la tarifa aumentada (50%), por cada hora adicional.
+- Si el numero de horas es amyor que 5, calcula el costo sumando el costo de las primeras 2 horas, mas el costo de las siguientes 3 horas a la tarifa aumentada (50% mas), y finalmente el costo a la tarifa doblada.
+
+
+
+2. Calcula el salario de un empleado basado en su salario base, años de experiencia y calificacion de desempeño. El salario final se ajusta por bonificaciones y deducciones por impuestos. Ademas, verifica si el empleado califica para un bono adicional.
+
+Requisitos
+- Un empleado tiene un nombre, salario base, años de experiencia y una calificacion de desempeño de 1 a 5.
+- Si la calificacion de desempeño es 4 a 5, recibe una bonificacion del 10% de su salario base.
+- Si la experiencia es mayor a 5 años, recibe una bonificacion adicional de 5%.
+- Aplica un impuesto del 20% al salario final si este supera los 3000.
+- Si el salario final, despues de impuestos, supera los 3500, el empleado califica para un bono adicional de 500.
+
+*/
