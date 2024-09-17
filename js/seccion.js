@@ -496,3 +496,53 @@ Requisitos
 - Si el salario final, despues de impuestos, supera los 3500, el empleado califica para un bono adicional de 500.
 
 */
+
+
+// 1er EJERCICIO
+let horasEstacionado = 8;
+let costoPorHora = 2;
+let costoTotal;
+
+if(horasEstacionado <= 2){
+    costoTotal = horasEstacionado * costoPorHora;
+}else if(horasEstacionado <= 5){
+    costoTotal = (2 * costoPorHora) + ((horasEstacionado - 2) * (costoPorHora * 1.5));
+}else{
+    costoTotal = (2 * costoPorHora) + (3 * (costoPorHora * 1.5)) + ((horasEstacionado - 5) * (costoPorHora * 2));
+}
+
+console.log("El precio total a pagar por las ",horasEstacionado, " horas estacionado, es de:",costoTotal);
+
+
+// 2do EJERCICIO
+let empleado2 = {
+    nombre: prompt("Ingresa tu Nombre: "),
+    salarioBase: parseInt(prompt("Ingresa tu salario base: ")),
+    experiencia: parseInt(prompt("Ingresa tus anos de experiencia: ")),
+    calificacionDesempeno: parseInt(prompt("Ingresa tu calificacion de desempeno: "))
+};
+
+let bonificacion = 0;
+
+//Bonificacion por desempeno
+if(empleado2.calificacionDesempeno >= 4){
+    bonificacion += empleado2.salarioBase * 0.10;   
+}
+
+// Bonificacion por experiencia
+if(empleado2.experiencia >= 5){
+    bonificacion += empleado2.salarioBase * 0.05;
+}
+
+let salarioFinal = empleado2.salarioBase + bonificacion;
+
+// Deduccion de impuestos
+if(salarioFinal >= 3000){
+    salarioFinal -= salarioFinal * 0.2;
+}
+
+if(salarioFinal >= 3500){
+    salarioFinal += 500;
+}
+
+alert("Tu salario final es de : " + salarioFinal + "$")
