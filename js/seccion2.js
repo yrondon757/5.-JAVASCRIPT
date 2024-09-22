@@ -191,3 +191,161 @@ function calculadora(num1, num2, operador = "+"){
 };
 
 console.log(calculadora(5, 5, "+"));
+
+
+
+
+
+// ------------------ METODOS DE STRING : METODOS DE UNA CADENA DE TEXTO
+
+let carro = "La ferrari";
+console.log(carro[3]); // Imprime la posicion del texto. La F correponde a la posicion 3.
+
+// Length (Longitud de una cadena de texto)
+console.log(carro.length); // Imprime todos los espacios del texto, es decir, "La ferrari" tiene 10 espacios.
+
+// indexof (Buscar la posicion de un caracter o palabra)
+console.log(carro.indexOf("r"));
+
+// slice (Nos permite extraer una parte de la cadena de texto)
+console.log(carro.slice(5)); // A partir de la posicion 5 que indicamos, imprimira "rrari"
+console.log(carro.slice(3,5)); // Imprime desde la posicion 3 a la 5, "fe" es lo que imprimira
+
+//trim (Nos permite quitar espacios en blanco)
+let carro2 = "   Ford Mustang   ";
+console.log(carro2);
+console.log(carro2.trim());
+
+// split (Nos permite convertir un string a un array)
+let texto = "Hola Mundo"; // ["H","o","l","a"]  ["Hola", "Mundo"]
+let texto2 = "Jose-Daniel";
+let texto3 = "Yenetson-Jose-Rondon";
+console.log(texto.split(" "));
+console.log(texto2.split("-"));
+console.log(texto3.split("-"));
+console.log(texto3.split(""));
+
+// replace (Nos permite reemplazar una parte de la cadena)
+let texto4 = "Me gusta Python";
+console.log(texto4.replace("Python", "Javascript"));
+
+// toUpperCase (Nos permite convertir la cadena de texto a mayusculas)
+console.log(texto4.toUpperCase());
+
+// toLowerCase (Nos permite convertir la cadena de texto a minusculas)
+console.log(texto4.toLowerCase());
+
+
+// EJERCICIO
+/*
+
+Segun el siguiente STRING
+"La vida es como andar en bicicleta, para mantener el equilibrio debes seguir adelante."
+
+1. Encontrar la posicion de la palabra "equilibrio".
+2. Encontrar la posicion de la palabra "bicicleta".
+3. Encontrar la posicion de la palabra "hola".
+4. Transformar el string en un array, separando por espacios.
+5. Transformar el string en mayusculas.
+6. Reemplazar la primera ocurrencia de "o" por "a".
+7. Concatenar a la frase siguiente: "- Albert Einstein".
+
+*/
+
+// 1
+let palabra = "La vida es como andar en bicicleta, para mantener el equilibrio debes seguir adelante.";
+console.log(palabra.indexOf("equilibrio"));
+
+// 2
+console.log(palabra.indexOf("bicicleta"));
+
+//3
+console.log(palabra.indexOf("hola"));
+
+//4
+console.log(palabra.split(" "));
+
+//5
+console.log(palabra.toUpperCase());
+
+//6
+// console.log(palabra.replace("o", "a")); // Reemplaza la primera "o" del texto.
+console.log(palabra.replaceAll("o", "a")); // Reemplaza todas las "o" del texto.
+
+//7
+console.log(palabra + " - Albert Einstein");
+
+
+
+
+// ----------------- METODOS DE ARRAY
+
+let car1 = "Mustang";
+let car2 = "Supra";
+let car3 = "Corvette";
+
+let cars = ["Mustang", "Supra", "Corvette"];
+console.log(cars[2]);
+
+// ------------------
+
+let frutas = ["Manzana", "Pera", "Banana", "Aguacate", "Kiwi"];
+
+// Length (Longitud del array)
+console.log(frutas.length); // Nos cuenta cada uno de los elementos, en este caso son "5" elementos.
+
+// Push (Nos permite agregar un elemento al final del array)
+frutas.push("Naranja"); // Se pueden agregar varios elementos
+console.log(frutas);
+
+// UNSHIFT (Nos permite agragar un elemento al principio del array)
+frutas.unshift("Pina");
+console.log(frutas);
+
+// POP (Nos permite quitar un elemento al final del array)
+frutas.pop();
+console.log(frutas);
+
+// SHIFT (Nos perrmite quitar un elemento al principio del array)
+frutas.shift();
+console.log(frutas);
+
+// INDEXOF (Nos permite encontrar la posicion de un elemento)
+console.log(frutas.indexOf("Kiwi")); // Al buscar un elemento que no existe, nos devuelve "-1"
+
+// Splice (Elimina un elemento del array o elementos), retorna el elemento eliminado
+// (posicion, cantidad de elementos a eliminar a partir de esa posicion)
+let elementoEliminado = frutas.splice(1,2);
+console.log(elementoEliminado);
+console.log(frutas);
+
+// Slice (Extrae parte del array)
+console.log(frutas.slice(1,3));
+
+// SORT (Ordena un array. De la A a la Z)
+console.log(frutas.sort());
+
+// REVERSE (Invierte el orden del array. De la Z a la A
+console.log(frutas.reverse());
+
+// JOIN (Convertir un array a string)
+// console.log(frutas.join(" - "));
+// console.log(frutas.join(" "));
+console.log(frutas.join(" / ")); // Separa los elementos del array con " / "
+
+// filter e includes (Nos permite filtrar)
+let correos = [
+    "juan@gmail.com",
+    "carlos@hotmail.com",
+    "raul@yahoo.com",
+    "yenetson@hotmail.com",
+    "maria@gmail.com"
+];
+
+let correos_hotmail = correos.filter(
+    function (correo){ // La funcion puede tener cualquier nombre. El parametro correo va a tomar cada elemento del array. correo = "juan@gmail.com"
+        return correo.includes("hotmail"); // Si cumple, nos retorna (true) y si no cumple es (false)
+    }
+);
+
+console.log(correos_hotmail);
