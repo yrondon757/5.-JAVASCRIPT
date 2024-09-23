@@ -349,3 +349,250 @@ let correos_hotmail = correos.filter(
 );
 
 console.log(correos_hotmail);
+
+
+// Filtrar solo los numeros pares
+let numeros_array = [1,2,3,4,5,6,7,8,9,10,11,12];
+let numeros_pares = numeros_array.filter(
+    function (numero){
+        return numero % 2 === 0;
+    }
+);
+
+console.log(numeros_pares);
+
+
+
+// EJERCICIO
+/*
+Dado el siguiente array de ciudades = ["Paris". "Marsella","Lyon","Touluose","Niza"]
+
+1. Agregar 2 ciudades mas al final del array.
+2. Encontrar la posicion de la ciudad de "Niza".
+3. Eliminar la ciudad de "Niza".
+4. Agregar la ciudad de "Burdeos" al principio del array.
+5. Encontrar la posicion de la ciudad de "Burdeos".
+6. Encontrar todas las ciudades que tengan la letra "M".
+7. Encontrar todas las ciudades que contengan la letra "P" o "N".
+8. Encontrar todas las ciudades que contengan mas de 6 letras.
+9. Encontrar todas las ciudades que contengan menos de 6 letras.
+*/
+
+let ciudades = [
+    "Paris",
+    "Marsella",
+    "Lyon",
+    "Toulouse",
+    "Niza",
+];
+
+//1
+ciudades.push("Lille", "Nantes");
+console.log(ciudades);
+
+//2
+console.log(ciudades.indexOf("Niza"));
+
+//3
+ciudades.splice(4,1);
+console.log(ciudades);
+
+//4
+ciudades.unshift("Burdeos");
+console.log(ciudades);
+
+//5
+console.log(ciudades.indexOf("Burdeos"));
+
+//6
+let ciudadesConM = ciudades.filter(
+    function(ciudad){
+        return ciudad.includes("M");
+    }
+);
+
+console.log(ciudadesConM);
+
+//7
+let ciudadesConPoN = ciudades.filter(
+    function (ciudad){
+        return ciudad.includes("P") || ciudad.includes("N");
+    }
+);
+
+console.log(ciudadesConPoN);
+
+//8
+let ciudadesSeisLetras = ciudades.filter(
+    function (ciudad){
+        return ciudad.length >= 6;
+    }
+);
+
+console.log(ciudadesSeisLetras);
+
+//9
+let ciudadesMenosSeisLetras = ciudades.filter(
+    function (ciudad){
+        return ciudad.length < 6;
+    }
+);
+
+console.log(ciudadesMenosSeisLetras);
+
+
+
+// -------------------- OBJETOS Y METODOS (PROGRAMACION ORIENTADA A OBJETOS (POO))
+
+let auto = {
+    marca: "Ford",
+    modelo: "Fiesta",
+    anno: 2020,
+    color: "negro",
+    encender: function(){ // Metodo
+        console.log("El carro esta encendido");
+    }
+};
+
+console.log(auto);
+console.log(auto.color);
+auto.encender();
+
+// Vamos a crear un objeto que represente un libro
+let libro = {
+    titulo: "Aprendiendo Javascript",
+    autor: "Jose",
+    genero: "Programacion",
+    paginas: 500,
+    disponible: 5,
+    prestar: function(){
+        if(this.disponible > 0){ // THIS (Permite tomar una propiedad del objeto)
+            this.disponible -= 1;
+            console.log("El libro ha sido prestado - Disponible: " + this.disponible);
+        }else{
+            console.log("No hay libros disponibles!");
+        }
+    },
+    devolver: function(){
+        if(this.disponible < 5){
+            this.disponible += 1;
+            console.log("El libro ha sido devuelto - Disponible: " + this.disponible);
+        }else{
+            console.log("Los libros ya han sido devueltos!");
+        }
+    }
+};
+
+console.log(libro);
+libro.prestar(); // Prestamos el libro una vez
+libro.prestar(); // Prestamos el libro una 2da vez
+libro.prestar();
+libro.prestar();
+libro.prestar();
+libro.prestar();
+
+// Devolver el libro
+libro.devolver();
+libro.devolver();
+libro.devolver();
+libro.devolver();
+libro.devolver();
+libro.devolver();
+console.log(libro);
+
+
+
+
+// ------------------------ FUNCIONES CONSTRUCTORAS
+let juego1 = {plataforma: "xbox", nombre: "GTA V", creador: "Rockstar Games"};
+let juego2 = {plataforma: "ps4", nombre: "GOW", creador: "Santa Monica Studio"};
+
+function Juego(plataforma, nombre, creador){ // La primera letra del nombre de la funcion debe ir en mayuscula
+    this.plataforma = plataforma;
+    this.nombre = nombre;
+    this.creador = creador;
+
+    this.mostrarInformacion = function(){
+        console.log("Nombre: " + this.nombre);
+        console.log("Creador: " + this.creador);
+        console.log("Plataforma: " + this.plataforma);
+    }
+};
+
+let juego3 = new Juego("PC","FIFA","EA sports");
+let juego4 = new Juego("PC","Counter Strike","Valve");
+console.log(juego2);
+console.log(juego3);
+console.log(juego4);
+
+juego3.mostrarInformacion();
+// Esto de arriba, ya casi no se usa, pero es bueno tener el conocimiento.
+
+
+
+// ------------------ CLASES EN JAVASCRIPT
+/*
+JUEGO DE MARIO = MARIO Y LUIGI
+
+Objeto : Player 1           Obejto : Player 2
+
+Atributos : (Caracteristicas distintas entre los players)
+nombre: Mario                   nombre: Luigi
+color: Rojo                     nombre: Verde
+
+Metodos:
+Saltar();
+Correr();
+Saludar();
+*/
+
+// (IMPORTANTE; La primera letra debe ser en mayuscula)
+class Player{
+    constructor(nombre, color){
+        this._nombre = nombre;
+        this._color = color;
+    }
+
+    saltar(){
+        console.log("Saltando...");
+    }
+
+    correr(){
+        console.log("Corriendo...");
+    }
+
+    saludar(){
+        console.log("Holaaaaaaaaaaa soy: " + this._nombre);
+    }
+
+    // get -----> Nos permite mostrar informacion...
+    get nombre(){
+        return "Nombre: " + this._nombre;
+    }
+
+    // set -----> Nos permite modificar informacion...
+    set nombre(nuevo){
+        this._nombre = nuevo;
+    }
+
+};
+
+let player1 = new Player("Mario","Rojo");
+let player2 = new Player("Luigi","Verde");
+let player3 = new Player("Yenetson","Azul");
+console.log(player1);
+player1.correr();
+player1.saltar();
+console.log(player2);
+player2.saludar();
+console.log(player3);
+player3.saludar();
+
+// Usar el metodo GET
+console.log(player1.nombre);
+console.log(player2.nombre);
+console.log(player3.nombre);
+
+// Usar el metodo SET
+player3.nombre = "Jose";
+console.log(player3.nombre);
