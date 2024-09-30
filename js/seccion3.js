@@ -187,3 +187,63 @@ elemento.appendChild(nuevoElemento); // Agregamos este nuevo elemento a un eleme
 
 // ---------- REMOVER CHILD
 
+// --------- CHILDREN : Me permite ver los hijos de un elemento padre
+const elementoEliminar = elemento.children[1];
+elemento.removeChild(elementoEliminar);
+
+
+// ---------------- EVENTOS
+
+const lista = document.getElementById("miLista");
+const botonAgregar = document.getElementById("agregarElemento");
+//const botonEliminar = document.getElementById("eleminarElemento");
+const nuevoTarea = document.getElementById("tarea");
+
+/*botonAgregar.addEventListener("click", () =>{
+    const crearElemento = document.createElement("li"); // <li></li>
+    crearElemento.textContent = "Nuevo Elemento :D";
+    lista.appendChild(crearElemento);
+})*/
+
+const agregarNuevaTarea = () =>{
+    const crearElemento = document.createElement("li"); // <li></li>
+    crearElemento.textContent = nuevoTarea.value;
+
+    // Vamos a crear el boton de eliminar (Esto para que elimine la tarea especifica)
+    const botonEliminar = document.createElement("button");
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.className = "px-4 py-2 bg-red-500 rounded text-white ml-2";
+
+    // Vamos a crear un evento
+    botonEliminar.addEventListener("click", () =>{
+        lista.removeChild(crearElemento);
+    })
+
+    // Vamos a anadir este boton a la tarea
+    crearElemento.appendChild(botonEliminar);
+
+    lista.appendChild(crearElemento);
+    nuevoTarea.value = " ";
+}
+
+botonAgregar.addEventListener("click", () =>{
+    agregarNuevaTarea()
+})
+
+//botonEliminar.addEventListener("click", () =>{
+    const primerElemento = lista.firstElementChild;
+    if(primerElemento){
+        lista.removeChild(primerElemento);
+    }else{
+        alert("No hay elemento que eliminar, todo esta vacio");
+    }
+
+/*nuevoTarea.addEventListener("input", (event) =>{
+    console.log(event.data);
+})*/
+nuevoTarea.addEventListener("keypress", (event) =>{
+    //console.log(event.key);
+    if(event.key === "Enter"){
+        agregarNuevaTarea()
+    }
+})
