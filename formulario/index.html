@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="style.css">
 </head>
-<body class="min-h-screen flex justify-center bg-indigo-300">
+<body class="min-h-screen flex items-center justify-center bg-indigo-300">
     <div class="w-full max-w-md bg-white p-10 rounded-md shadow-md">
         <h1 class="font-bold text-center mt-2 mb-4 text-3xl">Formulario de login</h1>
         <form id="formulario" class="space-y-5">
@@ -15,14 +15,14 @@
             <div>
                 <label for="email" class="font-semibold text-gray-600 text-sm block">Correo electronico</label>
                 <input type="email" id="email" name="email" class="rounded-md shadow-md focus:border-indigo-700 focus:outline-none p-2 block w-full mt-2">
-                <p id="emailError" class="error-message">Mensaje de error</p>
+                <p id="emailError" class="error-message">Correo invalido.</p>
             </div>
 
             <!-- CAMPO DE CONTRASENA -->
             <div>
                 <label for="password" class="font-semibold text-gray-600 text-sm block">Contrasena</label>
                 <input type="password" name="password" id="password" class="rounded-md shadow-md focus:border-indigo-700 focus:outline-none p-2 block w-full mt-2">
-                <p id="passwordError" class="error-message">Mensaje de error</p>
+                <p id="passwordError" class="error-message">Contrasena invalida.</p>
             </div>
 
             <!-- BOTON PARA INICIAR SESION -->

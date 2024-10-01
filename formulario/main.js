@@ -9,8 +9,13 @@ const regexEmail = /\w+\@\w{3,7}\.com/g;
 
 inputEmail.addEventListener("input", () =>{
     if(regexEmail.test(inputEmail.value)){
-        alert("Valido")
+        inputEmail.classList.remove("invalid");
+        errorEmail.style.display = "none";
+        inputEmail.classList.add("valid");
     }else{
-        alert("Invalido")
+        inputEmail.classList.remove("valid");
+        errorEmail.style.display = "block";
+        inputEmail.classList.add("invalid");
     }
 })
+
