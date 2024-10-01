@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-indigo-950">
+  <div class="w-full rounded p-10 shadow-sm bg-gray-200 max-w-lg">
+    <h2 class="text-3xl font-bold">Mi calculadora</h2>
+    <!-- PANTALLA -->
+    <div class="mb-5">
+      <input type="text" id="display" disabled class="w-full rounded border p-5 text-right">
+    </div>
+
+    <div class="grid grid-cols-4 gap-2">
+      <button onclick="clearDisplay()" class="bg-red-500 text-white font-bold py-3 px-5 col-span-2 rounded">C</button>
+      <button onclick="addOperator('/')" class="bg-green-500 text-white font-bold py-3 px-5 rounded">/</button>
+      <button onclick="addOperator('*')" class="bg-green-500 text-white font-bold py-3 px-5 rounded">*</button>
+
+      <button onclick="addNumber('7')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">7</button>
+      <button onclick="addNumber('8')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">8</button>
+      <button onclick="addNumber('9')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">9</button>
+      <button onclick="addOperator('-')" class="bg-green-500 text-white font-bold py-3 px-5 rounded">-</button>
+
+      <button onclick="addNumber('4')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">4</button>
+      <button onclick="addNumber('5')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">5</button>
+      <button onclick="addNumber('6')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">6</button>
+      <button onclick="addOperator('+')" class="bg-green-500 text-white font-bold py-3 px-5 rounded">+</button>
+
+      <button onclick="addNumber('1')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">1</button>
+      <button onclick="addNumber('2')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">2</button>
+      <button onclick="addNumber('3')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">3</button>
+      <button onclick="calculate()" class="bg-orange-400 text-white font-bold py-3 px-5 rounded row-span-2">=</button>
+
+      <button onclick="addNumber('0')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded col-span-2">0</button>
+      <button onclick="addNumber('.')" class="bg-indigo-400 text-white font-bold py-3 px-5 rounded">.</button>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

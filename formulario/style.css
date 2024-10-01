@@ -1,12 +1,12 @@
 .error-message{
     color: red;
     display: none;
-}
-
-.valid{
+  }
+  
+  .valid{
     border-color: green;
-}
-
-.invalid{
+  }
+  
+  .invalid{
     border-color: red;
-}
+  }
