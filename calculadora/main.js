@@ -43,3 +43,14 @@ function calculate(){
     currentOperator = null;
     updateDisplay();
   };
+
+  // Vamos a crear una funcion para limpiar la pantalla
+  function clearDisplay(){
+    valueDisplay = "";
+    previousValue = null;
+    currentOperator = null;
+    updateDisplay();
+  }
+
+  // Funcion eval();
+  console.log(eval("50 + 2 * 10 / 2")); // Resuelve operaciones matematicas en string (con ""). Ejem: 5+5+5-2/2*2
