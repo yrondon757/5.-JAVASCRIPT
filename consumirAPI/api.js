@@ -60,48 +60,55 @@ const inicio = async () =>{
 
 inicio();*/
 
-const characterDiv = document.getElementById("characters");
-const prevButton = document.getElementById("preview");
+const charactersDiv = document.getElementById("characters");
+const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 let currentPage = 1;
 
-const fetchCharacters = async (page)=>{
-    try{
-        const response = await fetch(`https://rickandmortyapi.com/api/character?page${page}`);
-        const data = await response.json();
-        return data;
-    }catch(error){
-        console.log(error);
+const fetchCharacters = async (page) => {
+    try {
+    const response = await fetch(
+        `https://rickandmortyapi.com/api/character?page=${page}`
+    );
+    const data = await response.json();
+    return data;
+    } catch (error) {
+    console.log(error);
     }
 };
 
-const renderCharacters = async (characters)=>{
-    const characterElements = characters.map(character => `
-        <div class="character">
-            <img src="${character.image}" alt="${character.name}">
-            <h2>${character.name}<h2/>
-        <div/>
-        `).join("");
-        characterDiv.innerHTML = characterElements;
+const renderCharacters = async (characters) => {
+    const characterElements = characters
+    .map((character) => `
+    <div class="character">
+        <img src="${character.image}" alt="${character.name}">
+        <h2>${character.name}</h2>
+    </div>    
+    `
+    )
+    .join("");
+    charactersDiv.innerHTML = characterElements;
 };
 
-const updateCharacters = async ()=>{
-    characterDiv.innerHTML = "<p>Cargando...<p/>"
+const updateCharacters = async () => {
+    charactersDiv.innerHTML = "<p>Cargando...</p>";
 
+    setTimeout(async () => {
     const data = await fetchCharacters(currentPage);
     renderCharacters(data.results);
-    prevButton.Disabled = !data.info.prev;
-    nextButton.Disabled = !data.info.next;
+    prevButton.disabled = !data.info.prev;
+    nextButton.disabled = !data.info.next;
+    }, 2000);
 };
 
-prevButton.addEventListener("click", ()=>{
-    if(currentPage > 1){
-        currentPage--;
-        updateCharacters();
+prevButton.addEventListener("click", () => {
+    if (currentPage > 1) {
+    currentPage--;
+    updateCharacters();
     }
 });
 
-nextButton.addEventListener("click", ()=>{
+nextButton.addEventListener("click", () => {
     currentPage++;
     updateCharacters();
 });
