@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        #characters{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 22px;
+            margin-bottom: 20px;
+        }
+        .character{
+            width: 150px;
+            padding: 8px;
+            text-align: center;
+            border: 1px solid gray;
+            position: relative;
+        }
+        .character img{
+            height: auto;
+            max-width: 100%;
+        }
+        .favorite-button{
+            cursor: pointer;
+            margin-top: 10px;
+            pad: 5px 10px;
+            border: none;
+            background-color: green;
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            color: white;
+        }
+        .favorite-button.active{
+            background-color: red;
+        }
+        .pagination{
+            display: flex;
+            justify-content: center;
+            gap: 5px;
+        }
+        .pagination button{
+            cursor: pointer;
+            padding: 10px 15px;
+            border: 1px solid gray;
+        }
+        .pagination button.active{
+            background-color: green;
+            color: white;
+            border-color: green;
+        }
+        #search{
+            margin-bottom: 25px;
+            width: 100%;
+            max-width: 300px;
+            padding: 12px;
+        }
+    </style>
+    <input type="text" placeholder="Buscar personajes" id="search">
+    <div id="characters">
+
+    </div>
+    <div class="pagination" id="pagination">
+        
+    </div>
+    <script src="api.js"></script>
+</body>
+</html>
